@@ -100,17 +100,25 @@ The framework encodes career guidance best practices, including structured evalu
 **For your own job search**, start from a private copy:
 
 ```bash
-gh repo clone ai-job-search-dev/ai-job-search
-cd ai-job-search
+gh repo clone UJJWAL-SAXENA-09/ai-job-search my-job-search
+cd my-job-search
 git remote rename origin upstream
-gh repo create ai-job-search --private --source=. --remote=origin --push
-gh repo set-default <your-github-username>/ai-job-search
+gh repo create my-job-search --private --source=. --remote=origin --push
+gh repo set-default "$(gh api user --jq .login)/my-job-search"
 ```
+
+This keeps the public source checkout separate from your private workspace. Before running `/setup`, confirm that the active repository is your private copy:
+
+```bash
+gh repo view --json nameWithOwner,isPrivate
+```
+
+Check that `nameWithOwner` identifies your workspace and `isPrivate` is `true`.
 
 **To contribute changes back**, fork instead:
 
 ```bash
-gh repo fork ai-job-search-dev/ai-job-search --clone
+gh repo fork UJJWAL-SAXENA-09/ai-job-search --clone
 cd ai-job-search
 ```
 
