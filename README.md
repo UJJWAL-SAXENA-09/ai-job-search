@@ -463,6 +463,17 @@ ai-job-search/
 
 </details>
 
+## Local checks
+
+Run these lightweight checks from the repository root before sharing documentation changes:
+
+```bash
+python3 tools/security_guards.py
+python3 -m unittest discover -s tests -p 'test_readme*.py'
+```
+
+The first checks repository permissions, ignore rules, and manifests; the second checks README image references. These commands do not search job boards or submit applications. On Windows, use `python` instead of `python3`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the wider checks used for code and workflow changes.
+
 ## Contributing
 
 Thinking about a PR? Read [CONTRIBUTING.md](CONTRIBUTING.md) first - it explains what gets merged, what lives in forks, and why.
