@@ -82,9 +82,11 @@ The framework encodes career guidance best practices, including structured evalu
 |---|---|
 | **[Claude Code](https://claude.com/claude-code)** | The CLI. No free tier: a Claude Pro/Max/Team subscription or Anthropic API credits (pay-per-token, usually cheaper for occasional use). |
 | **Python 3.10+** | For the tools in `tools/`. |
-| **[Bun](https://bun.sh)** | Runs the job portal CLI tools you copy in from community-portals. |
-| **LaTeX** | A distribution with `lualatex` and `xelatex`: [TeX Live](https://tug.org/texlive/), [MacTeX](https://tug.org/mactex/), [TinyTeX](https://yihui.org/tinytex/), or [MiKTeX](https://miktex.org/). |
+| **[Bun](https://bun.sh)** *(for portal CLIs)* | Runs the job portal CLI tools you copy in from community-portals. |
+| **LaTeX** *(for stock PDF templates)* | A distribution with `lualatex` and `xelatex`: [TeX Live](https://tug.org/texlive/), [MacTeX](https://tug.org/mactex/), [TinyTeX](https://yihui.org/tinytex/), or [MiKTeX](https://miktex.org/). |
 | **pypdf** *(optional)* | `python3 -m pip install pypdf` for `/apply`'s ATS parseability check. |
+
+Choose the extra tools for the workflow you plan to use. Profile setup, ranking, and application tracking can start with Claude Code and Python. Add Bun when installing portal CLIs, and LaTeX when generating PDFs from the stock templates. Without a portal CLI, `/scrape` uses WebSearch; review the generated PDFs once compilation tools are available.
 
 <details>
 <summary>Fine print: other agents, LaTeX engines, PDF text extraction</summary>
