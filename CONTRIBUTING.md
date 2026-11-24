@@ -27,6 +27,21 @@ The core lifecycle is **feature-complete**: `/setup` → `/scrape` → `/rank` �
 
 A new command therefore faces a high bar. The test that admitted the existing ones: **does it operationalize something error-prone that already exists in the framework** (documented machinery nothing executes, data something writes but nothing reads)? "Useful" and "possible" are not sufficient; the strongest proposals connect two things that already exist without modifying either ([#43], [#54]).
 
+## Development environment
+
+Create a local Python environment and install the lint/test dependencies:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-dev.txt
+python tools/lint_skills.py
+python tools/security_guards.py
+python -m unittest discover -s tests -t .
+```
+
+On Windows, use `python -m venv .venv` and activate it with `.\.venv\Scripts\Activate.ps1` in PowerShell before running the remaining commands. PyYAML supports skill linting; openpyxl runs the Excel integration tests with the same version used in CI. These development dependencies do not install a job-portal CLI or a LaTeX distribution.
+
 ## Claims get verified
 
 Reviews here are empirical. Bug reports are reproduced on master before the fix is considered; "all tests green" is checked against whether the tests can distinguish master from the fix. PRs whose premise doesn't reproduce get declined even when the code is fine - it has happened ([#35]'s converter fix, [#52]'s first version). You can make this fast:
