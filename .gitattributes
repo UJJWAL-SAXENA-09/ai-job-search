@@ -1,0 +1,21 @@
+# Keep scripts, templates, and configuration consistent across platforms.
+* text=auto eol=lf
+
+# Windows command files use their native line endings.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Fonts, documents, and images are binary assets.
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.xlsx binary
+*.xls binary

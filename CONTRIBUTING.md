@@ -42,6 +42,10 @@ python -m unittest discover -s tests -t .
 
 On Windows, use `python -m venv .venv` and activate it with `.\.venv\Scripts\Activate.ps1` in PowerShell before running the remaining commands. PyYAML supports skill linting; openpyxl runs the Excel integration tests with the same version used in CI. These development dependencies do not install a job-portal CLI or a LaTeX distribution.
 
+### Line endings and binary files
+
+`.gitattributes` keeps source and template files on LF across platforms, with CRLF for Windows command files. Fonts, images, PDFs, and Excel files are marked as binary. Keep changes focused and run `git diff --check` before committing; a text edit should not turn an unrelated file into a line-ending-only diff.
+
 ## Claims get verified
 
 Reviews here are empirical. Bug reports are reproduced on master before the fix is considered; "all tests green" is checked against whether the tests can distinguish master from the fix. PRs whose premise doesn't reproduce get declined even when the code is fine - it has happened ([#35]'s converter fix, [#52]'s first version). You can make this fast:
